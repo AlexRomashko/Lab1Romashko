@@ -5,6 +5,21 @@ public class Coffee extends Food{
 
     private String aroma; // параметр кофе (аромат)
 
+    // проверка на совпадение параметра
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Coffee)){
+            return false;
+        }
+        if (aroma == null || ((Coffee)obj).aroma == null){ // аромат не задан
+            return false;
+        }
+        if(!(aroma.equals(((Coffee) obj).aroma))){
+            return false;
+        }
+
+        return super.equals(obj);
+    }
+
     public String getAroma(){
         return aroma;
     }
